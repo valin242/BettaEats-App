@@ -30,72 +30,23 @@ export interface Organ {
   cards: OrganCardData[];
 }
 
-export interface Meal {
-  id: number;
-  em: string;
-  h: string;
-  s: string;
-  time: string;
-}
+/** Kinds of record a reader can bookmark. Compounds and indications join these
+ *  once the phase-1 schema lands. */
+export type SavedKind = 'food' | 'organ';
 
-export interface ProtectionRingData {
+export interface SavedItem {
+  kind: SavedKind;
   id: string;
-  em: string;
-  nm: string;
-  hb: string;
-  ac: string;
-  pct: number;
-  lbl: string;
-}
-
-export interface DiversityData {
-  count: number;
-  goal: number;
-  newThisWeek: string[];
-}
-
-export interface TipData {
-  badge: string;
-  text: string;
-}
-
-export interface TodayData {
-  pct: number;
-  streak: number;
-  diversity: DiversityData;
-  tip: TipData;
-  rings: ProtectionRingData[];
-  meals: Meal[];
-}
-
-export interface WeekDay {
-  d: string;
-  groups: number;
-  today?: boolean;
-}
-
-export interface CoverageData {
-  nm: string;
-  pct: number;
-}
-
-export interface InsightsData {
-  week: WeekDay[];
-  maxGroups: number;
-  coverage: CoverageData[];
-  topCompounds: string[];
-  gap: { nm: string; why: string; em: string };
+  savedAt: string;
 }
 
 export interface AppState {
   hasOnboarded: boolean;
   hydrated: boolean;
-  meals: Meal[];
-  streak: number;
-  lastLogDate: string | null;
+  saved: SavedItem[];
 }
 
 export type AppAction =
   | { type: 'HYDRATE'; payload: Partial<AppState> }
   | { type: 'SET_ONBOARDED' }
-  | { type: 'ADD_MEAL'; payload: Meal };
+  | { type: 'TOGGLE_SAVED'; payload: { kind: SavedKind; id: string } };

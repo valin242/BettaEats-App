@@ -60,7 +60,7 @@ export default function AppBar({
             style={styles.searchInput}
             value={search}
             onChangeText={onSearchChange}
-            placeholder="Search foods, compounds, diseases…"
+            placeholder="Search foods, compounds, systems…"
             placeholderTextColor={Colors.fg4}
           />
         </View>

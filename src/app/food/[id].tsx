@@ -11,7 +11,7 @@ import { useAppContext } from '@/context/AppContext';
 
 export default function FoodDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { addMeal } = useAppContext();
+  const { toggleSaved, isSaved } = useAppContext();
 
   const food = FOODS.find((f) => f.id === id);
 
@@ -23,15 +23,7 @@ export default function FoodDetailScreen() {
     );
   }
 
-  const handleLog = () => {
-    addMeal({
-      em: food.emoji,
-      h: food.group,
-      s: food.compounds.slice(0, 3).join(' · '),
-      time: new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }),
-    });
-    router.back();
-  };
+  const saved = isSaved('food', food.id);
 
   return (
     <View style={styles.container}>
@@ -87,14 +79,14 @@ export default function FoodDetailScreen() {
           </Disclaimer>
         </View>
 
-        {/* CTAs */}
+        {/* CTA */}
         <View style={[styles.section, styles.ctas]}>
-          <Btn full onPress={handleLog}>
-            + Log {food.group.toLowerCase()} today
-          </Btn>
-          <View style={{ height: 8 }} />
-          <Btn variant="secondary" full onPress={() => {}}>
-            Save to favorites
+          <Btn
+            variant={saved ? 'secondary' : 'primary'}
+            full
+            onPress={() => toggleSaved('food', food.id)}
+          >
+            {saved ? '🔖 Saved — tap to remove' : 'Save for reference'}
           </Btn>
         </View>
       </ScrollView>

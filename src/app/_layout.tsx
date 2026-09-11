@@ -12,6 +12,7 @@ import {
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -41,6 +42,9 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <AppContextProvider>
+        {/* The palette is light-only, so pin dark glyphs rather than letting
+            "automatic" hand us light text on a white app bar. */}
+        <StatusBar style="dark" />
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" />
           <Stack.Screen name="onboarding" />
@@ -48,10 +52,6 @@ export default function RootLayout() {
           <Stack.Screen
             name="food/[id]"
             options={{ presentation: 'card', animation: 'slide_from_right' }}
-          />
-          <Stack.Screen
-            name="log"
-            options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
           />
         </Stack>
       </AppContextProvider>

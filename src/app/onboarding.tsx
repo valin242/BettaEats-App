@@ -8,14 +8,14 @@ import { Colors, FontFamily, Spacing } from '@/constants/tokens';
 
 const FEATURES = [
   {
-    em: '🥦',
-    h: '12 food groups, 70+ compounds',
+    em: '🔍',
+    h: 'Look up any food or compound',
     s: 'Sulforaphane, EGCG, curcumin — what they actually do, by pathway.',
   },
   {
     em: '❤️',
-    h: 'Protection by organ & disease',
-    s: 'See which systems your meals support — heart, brain, gut, immune.',
+    h: 'Search by organ & condition',
+    s: 'Find what protects the heart, brain, gut and immune system.',
   },
   {
     em: '📊',
@@ -49,8 +49,8 @@ export default function OnboardingScreen() {
 
       <Text style={styles.headline}>Eat for the body{'\n'}you're building.</Text>
       <Text style={styles.body}>
-        BettaEats turns peer-reviewed nutritional biochemistry into a daily practice — what you ate,
-        what it's protecting, and how to prepare it for maximum effect.
+        BettaEats turns peer-reviewed nutritional biochemistry into something you can look up in
+        seconds — what a food contains, what it protects, and how to prepare it for maximum effect.
       </Text>
 
       <View style={styles.features}>

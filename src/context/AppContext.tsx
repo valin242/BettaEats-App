@@ -1,33 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 
-import type { AppAction, AppState, Meal } from '@/types';
+import type { AppAction, AppState, SavedKind } from '@/types';
 
 const KEYS = {
   onboarded: '@bettaeats/hasOnboarded',
-  meals: '@bettaeats/meals',
-  streak: '@bettaeats/streak',
-  lastLogDate: '@bettaeats/lastLogDate',
+  saved: '@bettaeats/saved',
 } as const;
 
 const initialState: AppState = {
   hasOnboarded: false,
   hydrated: false,
-  meals: [],
-  streak: 0,
-  lastLogDate: null,
+  saved: [],
 };
-
-function computeStreak(lastLogDate: string | null, currentStreak: number): number {
-  if (!lastLogDate) return 0;
-  const last = new Date(lastLogDate);
-  const today = new Date();
-  const diffMs = today.setHours(0, 0, 0, 0) - last.setHours(0, 0, 0, 0);
-  const diffDays = Math.floor(diffMs / 86_400_000);
-  if (diffDays === 0) return currentStreak;
-  if (diffDays === 1) return currentStreak + 1;
-  return 1; // streak broken; today counts as day 1
-}
 
 function reducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
@@ -35,14 +20,14 @@ function reducer(state: AppState, action: AppAction): AppState {
       return { ...state, ...action.payload, hydrated: true };
     case 'SET_ONBOARDED':
       return { ...state, hasOnboarded: true };
-    case 'ADD_MEAL': {
-      const today = new Date().toISOString().split('T')[0];
-      const newStreak = computeStreak(state.lastLogDate, state.streak);
+    case 'TOGGLE_SAVED': {
+      const { kind, id } = action.payload;
+      const existing = state.saved.find((s) => s.kind === kind && s.id === id);
       return {
         ...state,
-        meals: [action.payload, ...state.meals],
-        streak: newStreak,
-        lastLogDate: today,
+        saved: existing
+          ? state.saved.filter((s) => !(s.kind === kind && s.id === id))
+          : [{ kind, id, savedAt: new Date().toISOString() }, ...state.saved],
       };
     }
     default:
@@ -52,8 +37,8 @@ function reducer(state: AppState, action: AppAction): AppState {
 
 interface ContextValue {
   state: AppState;
-  dispatch: React.Dispatch<AppAction>;
-  addMeal: (meal: Omit<Meal, 'id'>) => void;
+  toggleSaved: (kind: SavedKind, id: string) => void;
+  isSaved: (kind: SavedKind, id: string) => boolean;
   setOnboarded: () => void;
 }
 
@@ -66,20 +51,13 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
   useEffect(() => {
     (async () => {
       try {
-        const results = await AsyncStorage.multiGet([
-          KEYS.onboarded,
-          KEYS.meals,
-          KEYS.streak,
-          KEYS.lastLogDate,
-        ]);
+        const results = await AsyncStorage.multiGet([KEYS.onboarded, KEYS.saved]);
         const map = Object.fromEntries(results);
         dispatch({
           type: 'HYDRATE',
           payload: {
             hasOnboarded: map[KEYS.onboarded] === 'true',
-            meals: map[KEYS.meals] ? JSON.parse(map[KEYS.meals]!) : [],
-            streak: map[KEYS.streak] ? parseInt(map[KEYS.streak]!, 10) : 0,
-            lastLogDate: map[KEYS.lastLogDate] ?? null,
+            saved: map[KEYS.saved] ? JSON.parse(map[KEYS.saved]!) : [],
           },
         });
       } catch {
@@ -93,23 +71,28 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
     if (!state.hydrated) return;
     AsyncStorage.multiSet([
       [KEYS.onboarded, String(state.hasOnboarded)],
-      [KEYS.meals, JSON.stringify(state.meals)],
-      [KEYS.streak, String(state.streak)],
-      [KEYS.lastLogDate, state.lastLogDate ?? ''],
+      [KEYS.saved, JSON.stringify(state.saved)],
     ]).catch(() => {});
-  }, [state.hasOnboarded, state.meals, state.streak, state.lastLogDate, state.hydrated]);
+  }, [state.hasOnboarded, state.saved, state.hydrated]);
 
-  const addMeal = (meal: Omit<Meal, 'id'>) => {
-    dispatch({ type: 'ADD_MEAL', payload: { ...meal, id: Date.now() } });
-  };
-
-  const setOnboarded = () => dispatch({ type: 'SET_ONBOARDED' });
-
-  return (
-    <AppContext.Provider value={{ state, dispatch, addMeal, setOnboarded }}>
-      {children}
-    </AppContext.Provider>
+  const toggleSaved = useCallback(
+    (kind: SavedKind, id: string) => dispatch({ type: 'TOGGLE_SAVED', payload: { kind, id } }),
+    []
   );
+
+  const isSaved = useCallback(
+    (kind: SavedKind, id: string) => state.saved.some((s) => s.kind === kind && s.id === id),
+    [state.saved]
+  );
+
+  const setOnboarded = useCallback(() => dispatch({ type: 'SET_ONBOARDED' }), []);
+
+  const value = useMemo(
+    () => ({ state, toggleSaved, isSaved, setOnboarded }),
+    [state, toggleSaved, isSaved, setOnboarded]
+  );
+
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
 
 export function useAppContext() {

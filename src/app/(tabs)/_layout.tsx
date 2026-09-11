@@ -9,9 +9,9 @@ export default function TabLayout() {
       screenOptions={{ headerShown: false }}
     >
       <Tabs.Screen name="index" />
-      <Tabs.Screen name="explore" />
-      <Tabs.Screen name="insights" />
-      <Tabs.Screen name="profile" />
+      <Tabs.Screen name="browse" />
+      <Tabs.Screen name="saved" />
+      <Tabs.Screen name="about" />
     </Tabs>
   );
 }

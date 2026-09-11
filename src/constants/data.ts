@@ -1,4 +1,4 @@
-import type { Food, Organ, TodayData, InsightsData } from '@/types';
+import type { Food, Organ } from '@/types';
 
 export const FOODS: Food[] = [
   {
@@ -173,53 +173,3 @@ export const ORGANS: Organ[] = [
     ],
   },
 ];
-
-export const TODAY: TodayData = {
-  pct: 64,
-  streak: 12,
-  diversity: {
-    count: 18,
-    goal: 30,
-    newThisWeek: ['Watercress', 'Mung beans', 'Pomegranate'],
-  },
-  tip: {
-    badge: "Today's prep tip",
-    text: 'Cooking tomatoes tonight? Add olive oil — heat breaks cell walls releasing lycopene, and fat is essential for absorption. Paste beats fresh 2.5x for bioavailability.',
-  },
-  rings: [
-    { id: 'crucifer', em: '🥦', nm: 'Cruciferous', hb: '#e8f5ec', ac: '#2d7a4f', pct: 100, lbl: '1 of 1 serving' },
-    { id: 'berry', em: '🫐', nm: 'Berries', hb: '#f3eaf8', ac: '#7b3fa0', pct: 50, lbl: '½ cup of 1 cup' },
-    { id: 'leafy', em: '🥬', nm: 'Leafy', hb: '#eaf5e8', ac: '#3a7a2a', pct: 80, lbl: '~2 cups' },
-    { id: 'legume', em: '🫘', nm: 'Legumes', hb: '#e8f0f8', ac: '#2a5a8a', pct: 0, lbl: 'Not yet' },
-    { id: 'tea', em: '🍵', nm: 'Tea / Coffee', hb: '#eaf5f0', ac: '#1a6a50', pct: 100, lbl: '2 cups green' },
-    { id: 'spice', em: '🫚', nm: 'Spices', hb: '#fef0e0', ac: '#c05010', pct: 33, lbl: 'Turmeric' },
-  ],
-  meals: [
-    { id: 1, em: '☕️', h: 'Matcha + lemon', s: 'EGCG · Vitamin C · Theanine', time: '7:14a' },
-    { id: 2, em: '🥣', h: 'Steel-cut oats with blueberries & walnuts', s: 'Beta-glucan · Anthocyanins · Omega-3 ALA', time: '8:02a' },
-    { id: 3, em: '🥗', h: 'Kale + arugula + chickpea bowl', s: 'Chlorophyll · Folate · Resistant starch', time: '12:40p' },
-    { id: 4, em: '🍵', h: 'Green tea (second steep)', s: 'EGCG', time: '3:18p' },
-  ],
-};
-
-export const INSIGHTS: InsightsData = {
-  week: [
-    { d: 'M', groups: 4 }, { d: 'T', groups: 6 }, { d: 'W', groups: 3 },
-    { d: 'T', groups: 5 }, { d: 'F', groups: 6 }, { d: 'S', groups: 7 },
-    { d: 'S', groups: 4, today: true },
-  ],
-  maxGroups: 8,
-  coverage: [
-    { nm: 'Heart', pct: 86 },
-    { nm: 'Brain', pct: 71 },
-    { nm: 'Colon & gut', pct: 92 },
-    { nm: 'Liver', pct: 58 },
-    { nm: 'Immune', pct: 64 },
-  ],
-  topCompounds: ['EGCG', 'Sulforaphane', 'Anthocyanins', 'Beta-glucan', 'Chlorophyll'],
-  gap: {
-    nm: 'Legumes',
-    why: 'Resistant starch → butyrate — your colon coverage leader is underfed this week.',
-    em: '🫘',
-  },
-};

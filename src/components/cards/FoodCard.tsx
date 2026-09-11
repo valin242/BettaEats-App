@@ -12,10 +12,16 @@ interface Props {
 }
 
 export default function FoodCard({ food, defaultOpen = false, onPress }: Props) {
+  // A card either navigates to the detail screen or expands in place — never both.
+  const navigates = onPress !== undefined;
   const [open, setOpen] = useState(defaultOpen);
   const chevronAnim = useRef(new Animated.Value(defaultOpen ? 1 : 0)).current;
 
-  const toggle = () => {
+  const handlePress = () => {
+    if (navigates) {
+      onPress(food);
+      return;
+    }
     const next = !open;
     setOpen(next);
     Animated.timing(chevronAnim, {
@@ -23,7 +29,6 @@ export default function FoodCard({ food, defaultOpen = false, onPress }: Props) 
       duration: 200,
       useNativeDriver: true,
     }).start();
-    onPress?.(food);
   };
 
   const chevronRotate = chevronAnim.interpolate({
@@ -34,8 +39,12 @@ export default function FoodCard({ food, defaultOpen = false, onPress }: Props) 
   return (
     <TouchableOpacity
       style={[styles.card, open ? Shadows.shadow3 : Shadows.shadow1, { borderColor: food.bd }]}
-      onPress={toggle}
+      onPress={handlePress}
       activeOpacity={0.9}
+      accessibilityRole="button"
+      accessibilityLabel={`${food.group}. ${food.items}`}
+      accessibilityHint={navigates ? 'Opens the full entry' : undefined}
+      accessibilityState={navigates ? undefined : { expanded: open }}
     >
       {/* Card head */}
       <View style={[styles.head, { backgroundColor: food.hb }]}>
@@ -47,9 +56,13 @@ export default function FoodCard({ food, defaultOpen = false, onPress }: Props) 
               <Text style={styles.items} numberOfLines={1}>{food.items}</Text>
             </View>
           </View>
-          <Animated.Text style={[styles.chev, { transform: [{ rotate: chevronRotate }] }]}>
-            ▾
-          </Animated.Text>
+          {navigates ? (
+            <Text style={styles.chev}>›</Text>
+          ) : (
+            <Animated.Text style={[styles.chev, { transform: [{ rotate: chevronRotate }] }]}>
+              ▾
+            </Animated.Text>
+          )}
         </View>
         <View style={styles.tagsRow}>
           {food.tags.map((t) => (
