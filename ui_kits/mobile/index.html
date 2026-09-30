@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- @dsCard group="UI Kit — Mobile" name="Mobile UI kit" subtitle="5-screen click-thru in iOS frame" viewport="900x1100" -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BettaEats — Mobile UI Kit</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { min-height: 100vh; display: grid; place-items: center; padding: 20px 0; gap: 18px; background: #f0f4f0; }
+    .label { color: #2d7a4f; font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; text-align: center; }
+    .title { color:#1c2b1c; font-family:'Lora',serif; font-size:22px; text-align:center; margin:6px 0 0; }
+    .sub { color:#5a6a5a; font-family:'DM Sans',sans-serif; font-size:13px; text-align:center; margin:6px 22px 14px; max-width: 720px; }
+    .stage { display: grid; place-items: center; }
+    .nav { display:flex; gap:8px; margin: 6px 0 20px; flex-wrap:wrap; justify-content:center; }
+    .nav button { background:#fff; color:#3d5a3e; border:1px solid #dde8d8; border-radius:18px; padding:6px 14px; font-family:'DM Sans',sans-serif; font-size:12px; cursor:pointer; }
+    .nav button.active { background:#2d7a4f; color:#fff; border-color:#2d7a4f; font-weight:700; }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="label">BettaEats · Mobile UI Kit</div>
+  <div id="root"></div>
+
+  <script src="data.js"></script>
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="Components.jsx"></script>
+  <script type="text/babel" src="Screens.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      const [screen, setScreen] = React.useState("today"); // onboarding, today, explore, detail, log
+      const [activeTab, setActiveTab] = React.useState("today");
+      const [detailFood, setDetailFood] = React.useState(null);
+
+      const goTab = (t) => {
+        setActiveTab(t);
+        if (t === "today") setScreen("today");
+        else if (t === "foods") setScreen("explore");
+        else if (t === "log") setScreen("log");
+        else if (t === "insights") setScreen("insights");
+        else if (t === "profile") setScreen("today");
+      };
+
+      const openFood = (f) => { setDetailFood(f); setScreen("detail"); };
+
+      let current;
+      if (screen === "onboarding") current = <OnboardingScreen onContinue={()=>setScreen("today")}/>;
+      else if (screen === "today") current = <TodayScreen onOpenFood={openFood}/>;
+      else if (screen === "explore") current = <ExploreScreen onOpenFood={openFood}/>;
+      else if (screen === "detail") current = <FoodDetailScreen food={detailFood} onBack={()=>setScreen("explore")}/>;
+      else if (screen === "insights") current = <InsightsScreen/>;
+      else if (screen === "log") current = <LogMealScreen onClose={()=>{ setScreen("today"); setActiveTab("today"); }}/>;
+
+      const showBottom = !["onboarding","log","detail"].includes(screen);
+
+      return (
+        <div>
+          <div className="title">{
+            screen==="onboarding"?"Onboarding":
+            screen==="today"?"Today":
+            screen==="explore"?"Explore":
+            screen==="detail"?"Food detail":
+            screen==="insights"?"Insights":
+            "Log a meal"
+          }</div>
+          <div className="sub">
+            { screen==="today" && "Streak, weekly plant diversity, protection rings, daily prep tip, and logged meals." }
+            { screen==="explore" && "The full Food / Organ / Disease taxonomy. Search by food, compound, or condition; tap any card to expand." }
+            { screen==="detail" && "Drill-down view: full benefit list, prep guidance, and an evidence note." }
+            { screen==="log" && "Tap-to-multi-select food groups for the meal. Quick — no portion math." }
+            { screen==="insights" && "Weekly food-group chart, organ coverage heuristic, top compounds, and the biggest gap to fix." }
+            { screen==="onboarding" && "First-run welcome screen. Sets the brand voice and the disclaimer up front." }
+          </div>
+          <div className="nav">
+            {["onboarding","today","explore","detail","insights","log"].map(s=>(
+              <button key={s} className={screen===s?"active":""} onClick={()=>{
+                if (s==="detail") setDetailFood(window.FOODS[1]);
+                if (s==="today"||s==="insights") setActiveTab(s);
+                if (s==="explore") setActiveTab("foods");
+                setScreen(s);
+              }}>{s}</button>
+            ))}
+          </div>
+          <div className="stage">
+            <div style={{position:"relative"}}>
+              <IOSDevice>
+                <div style={{height:"100%"}}>
+                  {current}
+                </div>
+              </IOSDevice>
+              {showBottom && (
+                <div style={{
+                  position:"absolute", left:0, right:0, bottom:0, zIndex:55,
+                  borderRadius:"0 0 48px 48px", overflow:"hidden",
+                }}>
+                  <BottomBar active={activeTab} onChange={goTab}/>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>

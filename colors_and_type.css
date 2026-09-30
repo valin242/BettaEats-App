@@ -1,0 +1,211 @@
+/* =============================================================
+   BettaEats — Colors & Type
+   Source: BettaEats/food-medicine-app.jsx (canonical palette + fonts)
+   Extended for a mobile-first React Native app with an inviting
+   sage-and-cream foundation. Category accents preserved verbatim.
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- CORE NEUTRALS (clean, vegetal) ---------- */
+  --bg:        #ffffff;   /* app background — clean white */
+  --bg-elev:  #f6f9f6;    /* subtly raised / tinted surface */
+  --surface:   #ffffff;   /* card surface */
+  --surface-tint: #fafcfa; /* nested card open state */
+
+  --fg-1:      #1c2b1c;   /* primary text — deep forest */
+  --fg-2:      #3d5a3e;   /* secondary text — sage-mid */
+  --fg-3:      #5a6a5a;   /* tertiary / body */
+  --fg-4:      #7a8f7b;   /* muted / metadata / placeholder */
+  --fg-5:      #a0b0a0;   /* footer / disabled */
+  --fg-on-dark: #ffffff;
+  --fg-on-dark-muted: #a8c5a8;
+  --fg-on-dark-faint: #7a9f7a;
+
+  --border-1:  #dde8d8;   /* default card border */
+  --border-2:  #e8ede8;   /* low-contrast divider */
+  --border-on-dark: rgba(255,255,255,0.15);
+  --overlay-on-dark: rgba(255,255,255,0.10);
+
+  /* ---------- BRAND ---------- */
+  --brand:           #2d7a4f;   /* the BettaEats green — clinical, vegetal */
+  --brand-dark:      #1c2b1c;   /* header bar, h1 */
+  --brand-mid:       #3d5a3e;
+  --brand-press:     #205838;
+  --brand-soft:      #e8f5ec;
+  --brand-soft-border:#90c9a4;
+
+  /* ---------- SEMANTIC STATUS ---------- */
+  --info-bg:    #e8f0f8;   --info-fg:    #2a5a8a;   --info-border: #88aed0;
+  --success-bg: #e8f5ec;   --success-fg: #2d7a4f;   --success-border: #90c9a4;
+  --warn-bg:    #fffbe8;   --warn-fg:    #7a6010;   --warn-border: #f0d060;
+  --danger-bg:  #fdecea;   --danger-fg:  #b02020;   --danger-border: #f09090;
+
+  /* ---------- EVIDENCE LEVELS ---------- */
+  --evidence-strong-bg: #e8f5ec;  --evidence-strong-fg: #2d7a4f;
+  --evidence-mixed-bg:  #fef8e7;  --evidence-mixed-fg:  #b07000;
+  --evidence-emerging-bg: #fef0e0; --evidence-emerging-fg: #b06010;
+  --evidence-correlational-bg: #f3eaf8; --evidence-correlational-fg: #7b3fa0;
+
+  /* ---------- INTENT (Prevention / Alleviation / Treatment) ---------- */
+  --intent-prevent-bg:    #e8f5ec;  --intent-prevent-fg:    #2d7a4f;
+  --intent-alleviate-bg:  #fef0e0;  --intent-alleviate-fg:  #b06010;
+  --intent-treat-bg:      #fdecea;  --intent-treat-fg:      #b02020;
+
+  /* ---------- FOOD CATEGORY ACCENTS (canonical from codebase) ---------- */
+  --cat-cruciferous-bg:#e8f5ec; --cat-cruciferous-fg:#2d7a4f; --cat-cruciferous-border:#90c9a4;
+  --cat-allium-bg:     #fdf3e8; --cat-allium-fg:     #b85c00; --cat-allium-border:     #f0b87a;
+  --cat-berry-bg:      #f3eaf8; --cat-berry-fg:      #7b3fa0; --cat-berry-border:      #c49fd8;
+  --cat-citrus-bg:     #fef8e7; --cat-citrus-fg:     #c47d00; --cat-citrus-border:     #f0d080;
+  --cat-leafy-bg:      #eaf5e8; --cat-leafy-fg:      #3a7a2a; --cat-leafy-border:      #96cc88;
+  --cat-legume-bg:     #e8f0f8; --cat-legume-fg:     #2a5a8a; --cat-legume-border:     #88aed0;
+  --cat-grain-bg:      #f8f3e8; --cat-grain-fg:      #8a6020; --cat-grain-border:      #d0b070;
+  --cat-nut-bg:        #f5f0e8; --cat-nut-fg:        #7a5030; --cat-nut-border:        #c0986a;
+  --cat-spice-bg:      #fef0e0; --cat-spice-fg:      #c05010; --cat-spice-border:      #f0a060;
+  --cat-tea-bg:        #eaf5f0; --cat-tea-fg:        #1a6a50; --cat-tea-border:        #80c0a0;
+  --cat-tomato-bg:     #fdecea; --cat-tomato-fg:     #c0302a; --cat-tomato-border:     #f09090;
+  --cat-fermented-bg:  #f0eef8; --cat-fermented-fg:  #5050a0; --cat-fermented-border:  #a0a0d8;
+
+  /* ---------- ORGAN ACCENTS ---------- */
+  --organ-heart-bg:#fdecea;  --organ-heart-fg:#c0302a;  --organ-heart-border:#f09090;
+  --organ-brain-bg:#ebe8f8;  --organ-brain-fg:#5040a0;  --organ-brain-border:#a898e0;
+  --organ-colon-bg:#e8f5ec;  --organ-colon-fg:#2d7a4f;  --organ-colon-border:#90c9a4;
+  --organ-liver-bg:#fdf3e8;  --organ-liver-fg:#b85c00;  --organ-liver-border:#f0b87a;
+  --organ-lungs-bg:#e8f0f8;  --organ-lungs-fg:#2a5a8a;  --organ-lungs-border:#88aed0;
+  --organ-immune-bg:#f3eaf8; --organ-immune-fg:#7b3fa0; --organ-immune-border:#c49fd8;
+  --organ-hormonal-bg:#fef8e7;--organ-hormonal-fg:#c47d00;--organ-hormonal-border:#f0d080;
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-ui:      'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- TYPE SCALE (mobile-first; tap-friendly) ---------- */
+  --fs-display: 30px;  --lh-display: 1.2;
+  --fs-h1:      24px;  --lh-h1:      1.25;
+  --fs-h2:      20px;  --lh-h2:      1.3;
+  --fs-h3:      16px;  --lh-h3:      1.35;
+  --fs-body:    14px;  --lh-body:    1.6;
+  --fs-body-lg: 15px;
+  --fs-meta:    13px;  --lh-meta:    1.5;
+  --fs-small:   12px;
+  --fs-caption: 11px;  --lh-caption: 1.5;
+  --fs-eyebrow: 10px;  --tr-eyebrow: 0.25em;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px;  --sp-6: 24px;  --sp-7: 32px;  --sp-8: 40px;
+  --sp-9: 48px;  --sp-10: 64px;
+
+  /* ---------- RADII ---------- */
+  --r-pill:  9999px;
+  --r-tag:   20px;
+  --r-card:  14px;
+  --r-card-sm: 8px;
+  --r-input: 30px;
+  --r-btn:   12px;
+  --r-icon:  10px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-1: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-2: 0 2px 10px rgba(0,0,0,0.06);
+  --shadow-3: 0 6px 24px rgba(0,0,0,0.10);
+  --shadow-header: 0 2px 12px rgba(28,43,28,0.06);
+  --ring-focus: 0 0 0 3px rgba(45,122,79,0.25);
+
+  /* ---------- MOTION ---------- */
+  --t-fast: 0.15s;
+  --t-base: 0.2s;
+  --t-slow: 0.3s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard: ease;
+
+  /* ---------- TAP TARGETS (mobile) ---------- */
+  --hit-min: 44px;
+}
+
+/* =============================================================
+   SEMANTIC TYPE STYLES
+   ============================================================= */
+.eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-4);
+}
+
+.display, h1.display {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 4vw, var(--fs-display));
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.body, p {
+  font-family: var(--font-ui);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-3);
+  margin: 0;
+}
+
+.body-lg {
+  font-family: var(--font-ui);
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+}
+
+.meta {
+  font-family: var(--font-ui);
+  font-size: var(--fs-meta);
+  line-height: var(--lh-meta);
+  color: var(--fg-3);
+}
+
+.caption {
+  font-family: var(--font-ui);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  color: var(--fg-4);
+}
+
+.italic-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-body-lg);
+  color: var(--fg-2);
+}
