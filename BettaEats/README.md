@@ -1,56 +1,95 @@
-# Welcome to your Expo app 👋
+# BettaEats
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cited, offline reference for what foods do for health. Look up a food to see what it contains and what
+the research says about it, or look up a condition to see which foods the evidence points to.
 
-## Get started
-
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Expo SDK 56 · React Native 0.85 · TypeScript
 
 ```bash
-npm run reset-project
+npm install
+npm run web        # run in the browser
+npm run typecheck  # app and scripts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## The database
 
-### Other setup steps
+Everything the app shows comes from the JSON files in `data/`, one per collection. Edit those, never
+`src/db/db.generated.json`.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+| File | Holds |
+| --- | --- |
+| `food-groups.json` | The canonical food groups, with their colours |
+| `foods.json` | Individual foods, each in at most one group |
+| `compounds.json` | Compounds and compound classes, with aliases for search |
+| `constituents.json` | Which foods or groups contain which compounds |
+| `systems.json` | Body systems: heart, brain, colon |
+| `indications.json` | Conditions and goals, optionally under a system or a broader parent |
+| `claims.json` | **The core:** foods or compounds → an indication, with evidence |
+| `prep-notes.json` | Preparation advice, cited the same way as claims |
+| `citations.json` | Papers, each resolvable by PMID or DOI |
 
-## Learn more
+After editing:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm run db:build   # validate data/, then regenerate src/db/db.generated.json
+npm run db:check   # fail if the generated file is out of date (for CI)
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### What the validator enforces
 
-## Join the community
+- **Verified claims are cited.** A claim is `verified` or `unverified`. A verified claim needs at least
+  one citation, an `evidenceLevel`, and an `intent`. An unverified claim may *not* carry an evidence
+  level: a grade is a judgment made against citations, and it has none yet.
+- **Every citation resolves.** Each has a PMID or a DOI, and the same paper can't be entered twice.
+- **Every reference exists.** A claim can't point at a food, compound, indication, or citation that
+  isn't there.
+- **Typos fail loudly.** Unknown fields are errors, so `citationId` instead of `citationIds` is caught
+  rather than silently dropped.
+- **Every record says where it came from.** `provenance` gives the source, where in it, the license, and
+  the date.
 
-Join our community of developers creating universal apps.
+### Verifying a claim
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Add the paper to `citations.json`:
+
+```json
+{
+  "id": "author-year-topic",
+  "title": "<paper title>",
+  "authors": "<Surname AB, Surname CD, …>",
+  "journal": "<journal>",
+  "year": 2013,
+  "pmid": "<PubMed ID>",
+  "studyType": "meta-analysis",
+  "provenance": { "source": "curated", "sourceId": "pubmed", "license": "original", "retrievedAt": "2026-09-29" }
+}
+```
+
+Then, on the claim, set `"status": "verified"` and add `evidenceLevel`, `intent`, and
+`"citationIds": ["author-year-topic"]`. Run `npm run db:build`; it tells you if anything is missing.
+
+A claim can also list candidate papers while still `unverified`. The app shows those as
+*candidate sources — not yet graded*.
+
+### Licensing profiles
+
+```bash
+npm run db:build              # research: ships every record
+npm run db:build:commercial   # drops records under non-commercial licenses
+```
+
+FooDB, Phenol-Explorer, and CTD are free for non-commercial use only; USDA FoodData Central is public
+domain. The commercial profile drops anything licensed `cc-by-nc` or `nc-permission`, and fails if a record
+it keeps points at one it dropped — so a commercial build can never ship a dangling reference.
+
+## Layout
+
+```
+data/            the database, as JSON — the source of truth
+scripts/db/      validator and build CLI (run through tsx)
+src/db/          schema (zod), vocabulary, runtime accessors, generated bundle
+src/app/         screens (expo-router)
+src/components/  UI
+```
+
+Educational reference only — not medical advice.

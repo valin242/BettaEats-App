@@ -1,0 +1,309 @@
+[
+  {
+    "id": "sulforaphane",
+    "name": "Sulforaphane",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "indole-3-carbinol",
+    "name": "Indole-3-Carbinol",
+    "kind": "compound",
+    "aliases": [
+      "I3C"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "dim",
+    "name": "DIM",
+    "kind": "compound",
+    "aliases": [
+      "3,3′-Diindolylmethane"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "glucosinolates",
+    "name": "Glucosinolates",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "vitamin-k",
+    "name": "Vitamin K",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allicin",
+    "name": "Allicin",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "diallyl-sulfide",
+    "name": "Diallyl Sulfide",
+    "kind": "compound",
+    "aliases": [
+      "DAS"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "quercetin",
+    "name": "Quercetin",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "organosulfur-compounds",
+    "name": "Organosulfur compounds",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "resveratrol",
+    "name": "Resveratrol",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "anthocyanins",
+    "name": "Anthocyanins",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "ellagic-acid",
+    "name": "Ellagic acid",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "pterostilbene",
+    "name": "Pterostilbene",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "chlorophyll",
+    "name": "Chlorophyll",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "folate",
+    "name": "Folate",
+    "kind": "class",
+    "aliases": [
+      "Vitamin B9"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "lutein",
+    "name": "Lutein",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "nitrates",
+    "name": "Nitrates",
+    "kind": "class",
+    "aliases": [
+      "Dietary nitrate"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "egcg",
+    "name": "EGCG",
+    "kind": "compound",
+    "aliases": [
+      "Epigallocatechin gallate"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "theanine",
+    "name": "Theanine",
+    "kind": "compound",
+    "aliases": [
+      "L-theanine"
+    ],
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "chlorogenic-acid",
+    "name": "Chlorogenic acid",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "theaflavins",
+    "name": "Theaflavins",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "curcumin",
+    "name": "Curcumin",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "gingerols",
+    "name": "Gingerols",
+    "kind": "class",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "carnosic-acid",
+    "name": "Carnosic acid",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "cinnamaldehyde",
+    "name": "Cinnamaldehyde",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "piperine",
+    "name": "Piperine",
+    "kind": "compound",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].compounds",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

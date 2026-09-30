@@ -1,0 +1,696 @@
+[
+  {
+    "id": "cruciferous-nrf2-activation",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "cruciferous"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Activate Nrf2 — the master antioxidant gene switch — upregulating 200+ protective proteins.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "cruciferous-cyp1a2-inhibition",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "cruciferous"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Inhibit CYP1A2 enzymes that convert carcinogens (HAAs, PAHs) into DNA-damaging forms.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "cruciferous-gst-induction",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "cruciferous"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Induce glutathione S-transferase (GST), which detoxifies reactive carcinogen metabolites.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allium-phase-2-enzymes",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "allium"
+      },
+      {
+        "kind": "compound",
+        "id": "allicin"
+      },
+      {
+        "kind": "compound",
+        "id": "organosulfur-compounds"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Allicin and organosulfur compounds induce GST and Phase II detox enzymes in liver and colon.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allium-quercetin-cyp1",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "allium"
+      },
+      {
+        "kind": "compound",
+        "id": "quercetin"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Quercetin inhibits CYP1B1 and CYP1A2, blocking metabolic activation of carcinogens.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allium-h-pylori",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "allium"
+      }
+    ],
+    "indicationId": "gastric-cancer",
+    "direction": "protective",
+    "statement": "Reduces H. pylori colonization linked to gastric cancer.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "berry-resveratrol-sirt1",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "berry"
+      },
+      {
+        "kind": "compound",
+        "id": "resveratrol"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Resveratrol activates SIRT1, a deacetylase that coordinates DNA repair.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "berry-anthocyanins-neuroinflammation",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "berry"
+      },
+      {
+        "kind": "compound",
+        "id": "anthocyanins"
+      }
+    ],
+    "indicationId": "cognitive-decline",
+    "direction": "protective",
+    "statement": "Anthocyanins cross the blood-brain barrier, reducing neuroinflammation.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "berry-ellagic-acid-carcinogens",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "berry"
+      },
+      {
+        "kind": "compound",
+        "id": "ellagic-acid"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Ellagic acid inhibits Phase I carcinogen activation and induces apoptosis.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "leafy-chlorophyll-carcinogen-binding",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "leafy"
+      },
+      {
+        "kind": "compound",
+        "id": "chlorophyll"
+      }
+    ],
+    "indicationId": "colorectal-cancer",
+    "direction": "protective",
+    "statement": "Chlorophyll physically complexes with PAHs and HAAs in the gut, blocking absorption.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "leafy-nitrates-blood-pressure",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "leafy"
+      },
+      {
+        "kind": "compound",
+        "id": "nitrates"
+      }
+    ],
+    "indicationId": "hypertension",
+    "direction": "protective",
+    "statement": "Nitrates convert to nitric oxide, improving vascular tone and reducing blood pressure.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "leafy-lutein-neuroprotection",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "leafy"
+      },
+      {
+        "kind": "compound",
+        "id": "lutein"
+      }
+    ],
+    "indicationId": "cognitive-decline",
+    "direction": "protective",
+    "statement": "Lutein accumulates in the brain, providing neuroprotection.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "tea-egcg-multi-target",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "tea"
+      },
+      {
+        "kind": "compound",
+        "id": "egcg"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "EGCG inhibits VEGF, NF-κB, and DNMT — a rare multi-target mechanism.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "tea-dnmt-tumor-suppressors",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "tea"
+      }
+    ],
+    "indicationId": "cancer",
+    "direction": "protective",
+    "statement": "Reactivates silenced tumor suppressor genes through DNMT inhibition.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "tea-chlorogenic-acid-t2d",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "tea"
+      },
+      {
+        "kind": "compound",
+        "id": "chlorogenic-acid"
+      }
+    ],
+    "indicationId": "type-2-diabetes",
+    "direction": "protective",
+    "statement": "Chlorogenic acid is associated with 25–30% reduced T2D risk in meta-analyses.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "spice-curcumin-nf-kb",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "spice"
+      },
+      {
+        "kind": "compound",
+        "id": "curcumin"
+      }
+    ],
+    "indicationId": "chronic-inflammation",
+    "direction": "protective",
+    "statement": "Curcumin activates Nrf2 and inhibits NF-κB; bioavailability is low without piperine.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].benefits[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "spice-gingerols-cox-2",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "spice"
+      },
+      {
+        "kind": "compound",
+        "id": "gingerols"
+      }
+    ],
+    "indicationId": "chronic-inflammation",
+    "direction": "protective",
+    "statement": "Gingerols inhibit 5-LOX and COX-2, reducing prostaglandin production.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].benefits[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "spice-cinnamaldehyde-ampk",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "group",
+        "id": "spice"
+      },
+      {
+        "kind": "compound",
+        "id": "cinnamaldehyde"
+      }
+    ],
+    "indicationId": "type-2-diabetes",
+    "direction": "protective",
+    "statement": "Cinnamaldehyde activates AMPK, improving insulin signaling.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].benefits[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "heart-arterial-protection",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "olive-oil"
+      },
+      {
+        "kind": "food",
+        "id": "red-grapes"
+      },
+      {
+        "kind": "group",
+        "id": "berry"
+      },
+      {
+        "kind": "compound",
+        "id": "resveratrol"
+      }
+    ],
+    "indicationId": "atherosclerosis",
+    "direction": "protective",
+    "headline": "Arterial Protection",
+    "statement": "Oleocanthal and resveratrol inhibit COX enzymes and reduce LDL oxidation — the key trigger of plaque formation.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "heart-blood-pressure",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "spinach"
+      },
+      {
+        "kind": "food",
+        "id": "arugula"
+      },
+      {
+        "kind": "food",
+        "id": "beets"
+      },
+      {
+        "kind": "compound",
+        "id": "nitrates"
+      }
+    ],
+    "indicationId": "hypertension",
+    "direction": "protective",
+    "headline": "Blood Pressure Regulation",
+    "statement": "Dietary nitrates in leafy greens convert to nitric oxide, relaxing vascular smooth muscle. 5–10 mmHg systolic reductions in trials.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "heart-cholesterol",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "oats"
+      },
+      {
+        "kind": "food",
+        "id": "barley"
+      },
+      {
+        "kind": "food",
+        "id": "garlic"
+      },
+      {
+        "kind": "group",
+        "id": "legume"
+      }
+    ],
+    "indicationId": "high-ldl-cholesterol",
+    "direction": "protective",
+    "headline": "Cholesterol Management",
+    "statement": "Beta-glucan in oats binds bile acids and prevents cholesterol reabsorption. Garlic inhibits HMG-CoA reductase.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "brain-neuroinflammation",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "blueberries"
+      },
+      {
+        "kind": "food",
+        "id": "blackberries"
+      },
+      {
+        "kind": "food",
+        "id": "strawberries"
+      },
+      {
+        "kind": "compound",
+        "id": "anthocyanins"
+      }
+    ],
+    "indicationId": "cognitive-decline",
+    "direction": "protective",
+    "headline": "Neuroinflammation Reduction",
+    "statement": "Anthocyanins from blueberries cross the blood-brain barrier, quenching ROS in neural tissue. Trials show measurable memory improvements in older adults.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain].cards[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "brain-amyloid-tau",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "turmeric"
+      },
+      {
+        "kind": "food",
+        "id": "green-tea"
+      },
+      {
+        "kind": "food",
+        "id": "rosemary"
+      },
+      {
+        "kind": "compound",
+        "id": "curcumin"
+      },
+      {
+        "kind": "compound",
+        "id": "egcg"
+      },
+      {
+        "kind": "compound",
+        "id": "carnosic-acid"
+      }
+    ],
+    "indicationId": "alzheimers-disease",
+    "direction": "protective",
+    "headline": "Amyloid & Tau Protection",
+    "statement": "Curcumin, EGCG, and carnosic acid inhibit amyloid-beta aggregation and tau phosphorylation in preclinical models.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain].cards[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "brain-cognitive-reserve",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "kale"
+      },
+      {
+        "kind": "food",
+        "id": "spinach"
+      },
+      {
+        "kind": "food",
+        "id": "eggs"
+      },
+      {
+        "kind": "compound",
+        "id": "lutein"
+      }
+    ],
+    "indicationId": "cognitive-decline",
+    "direction": "protective",
+    "headline": "Cognitive Reserve",
+    "statement": "Lutein from leafy greens accumulates in the hippocampus. 1 serving/day is associated with brains 11 years younger (Rush Memory Study).",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain].cards[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "colon-butyrate",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "oats"
+      },
+      {
+        "kind": "food",
+        "id": "lentils"
+      },
+      {
+        "kind": "food",
+        "id": "cooled-rice"
+      },
+      {
+        "kind": "food",
+        "id": "barley"
+      }
+    ],
+    "indicationId": "colorectal-cancer",
+    "direction": "protective",
+    "headline": "Butyrate Production",
+    "statement": "Fiber is fermented to butyrate — fuel for colonocytes, an HDAC inhibitor, and a trigger of apoptosis in precancerous cells.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[0]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "colon-microbiome-diversity",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "kimchi"
+      },
+      {
+        "kind": "food",
+        "id": "miso"
+      },
+      {
+        "kind": "food",
+        "id": "sauerkraut"
+      },
+      {
+        "kind": "food",
+        "id": "kefir"
+      }
+    ],
+    "indicationId": "microbiome-diversity",
+    "direction": "protective",
+    "headline": "Microbiome Diversity",
+    "statement": "Diverse gut microbiome is inversely correlated with colorectal cancer, IBD, and obesity. Variety beats quantity.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[1]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "colon-carcinogen-trapping",
+    "status": "unverified",
+    "subjects": [
+      {
+        "kind": "food",
+        "id": "spinach"
+      },
+      {
+        "kind": "food",
+        "id": "kale"
+      },
+      {
+        "kind": "food",
+        "id": "arugula"
+      },
+      {
+        "kind": "compound",
+        "id": "chlorophyll"
+      }
+    ],
+    "indicationId": "colorectal-cancer",
+    "direction": "protective",
+    "headline": "Carcinogen Trapping",
+    "statement": "Chlorophyll binds HAAs and PAHs in the gut before absorption. Greens with grilled meals are mechanistically protective.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[2]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

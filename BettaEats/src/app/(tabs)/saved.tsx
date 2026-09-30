@@ -2,39 +2,40 @@ import { router } from 'expo-router';
 import { useMemo } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import FoodCard from '@/components/cards/FoodCard';
-import OrganCard from '@/components/cards/OrganCard';
+import GroupCard from '@/components/cards/GroupCard';
+import SystemCard from '@/components/cards/SystemCard';
 import AppBar from '@/components/ui/AppBar';
 import Btn from '@/components/ui/Btn';
-import { FOODS, ORGANS } from '@/constants/data';
 import { Colors, FontFamily, Spacing } from '@/constants/tokens';
 import { useAppContext } from '@/context/AppContext';
-import type { Food } from '@/types';
+import { getGroup, getSystem } from '@/db';
+import type { BodySystem, FoodGroup } from '@/db/schema';
 
 export default function SavedScreen() {
   const { state } = useAppContext();
 
-  // Preserve save order (most recent first), which `state.saved` already carries.
-  const savedFoods = useMemo(
+  // Most recent first, which `state.saved` already carries. Entries whose record no longer
+  // exists (renamed or removed from the data) are skipped rather than shown broken.
+  const savedGroups = useMemo(
     () =>
       state.saved
-        .filter((s) => s.kind === 'food')
-        .map((s) => FOODS.find((f) => f.id === s.id))
-        .filter((f): f is Food => f !== undefined),
+        .filter((s) => s.kind === 'group')
+        .map((s) => getGroup(s.id))
+        .filter((g): g is FoodGroup => g !== undefined),
     [state.saved]
   );
 
-  const savedOrgans = useMemo(
+  const savedSystems = useMemo(
     () =>
       state.saved
-        .filter((s) => s.kind === 'organ')
-        .map((s) => ORGANS.find((o) => o.id === s.id))
-        .filter((o): o is NonNullable<typeof o> => o !== undefined),
+        .filter((s) => s.kind === 'system')
+        .map((s) => getSystem(s.id))
+        .filter((o): o is BodySystem => o !== undefined),
     [state.saved]
   );
 
-  const total = savedFoods.length + savedOrgans.length;
-  const openFood = (food: Food) => router.push(`/food/${food.id}`);
+  const total = savedGroups.length + savedSystems.length;
+  const openGroup = (group: FoodGroup) => router.push(`/group/${group.id}`);
 
   return (
     <View style={styles.container}>
@@ -53,7 +54,7 @@ export default function SavedScreen() {
             <Text style={styles.emptyEmoji}>🔖</Text>
             <Text style={styles.emptyTitle}>Nothing saved yet</Text>
             <Text style={styles.emptyBody}>
-              Tap “Save” on any food or system to keep it here for quick reference.
+              Tap “Save” on any food group or body system to keep it here for quick reference.
             </Text>
             <View style={styles.emptyCta}>
               <Btn onPress={() => router.push('/(tabs)/browse')}>Browse foods</Btn>
@@ -61,21 +62,21 @@ export default function SavedScreen() {
           </View>
         ) : (
           <>
-            {savedFoods.length > 0 && (
+            {savedGroups.length > 0 && (
               <>
                 <Text style={styles.sectionLabel}>Foods</Text>
-                {savedFoods.map((f) => (
-                  <FoodCard key={f.id} food={f} onPress={openFood} />
+                {savedGroups.map((g) => (
+                  <GroupCard key={g.id} group={g} onPress={openGroup} />
                 ))}
               </>
             )}
-            {savedOrgans.length > 0 && (
+            {savedSystems.length > 0 && (
               <>
-                <Text style={[styles.sectionLabel, savedFoods.length > 0 && { marginTop: Spacing.sp4 }]}>
+                <Text style={[styles.sectionLabel, savedGroups.length > 0 && { marginTop: Spacing.sp4 }]}>
                   Body systems
                 </Text>
-                {savedOrgans.map((o) => (
-                  <OrganCard key={o.id} organ={o} />
+                {savedSystems.map((o) => (
+                  <SystemCard key={o.id} system={o} />
                 ))}
               </>
             )}

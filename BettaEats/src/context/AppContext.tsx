@@ -1,12 +1,24 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 
-import type { AppAction, AppState, SavedKind } from '@/types';
+import type { AppAction, AppState, SavedItem, SavedKind } from '@/types';
 
 const KEYS = {
   onboarded: '@bettaeats/hasOnboarded',
   saved: '@bettaeats/saved',
 } as const;
+
+// Phase 0 saved 'food' and 'organ'; the ids carried over unchanged, so only the kind is renamed.
+const LEGACY_KINDS: Record<string, SavedKind> = { food: 'group', organ: 'system', group: 'group', system: 'system' };
+
+function readSaved(json: string | null | undefined): SavedItem[] {
+  if (!json) return [];
+  const items = JSON.parse(json) as { kind: string; id: string; savedAt: string }[];
+  return items.flatMap((item) => {
+    const kind = LEGACY_KINDS[item.kind];
+    return kind ? [{ ...item, kind }] : [];
+  });
+}
 
 const initialState: AppState = {
   hasOnboarded: false,
@@ -57,7 +69,7 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
           type: 'HYDRATE',
           payload: {
             hasOnboarded: map[KEYS.onboarded] === 'true',
-            saved: map[KEYS.saved] ? JSON.parse(map[KEYS.saved]!) : [],
+            saved: readSaved(map[KEYS.saved]),
           },
         });
       } catch {

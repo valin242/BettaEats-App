@@ -2,23 +2,23 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import FoodCard from '@/components/cards/FoodCard';
-import OrganCard from '@/components/cards/OrganCard';
+import GroupCard from '@/components/cards/GroupCard';
+import SystemCard from '@/components/cards/SystemCard';
 import AppBar from '@/components/ui/AppBar';
-import { FOODS, ORGANS } from '@/constants/data';
 import { Colors, FontFamily, Spacing } from '@/constants/tokens';
-import type { Food } from '@/types';
+import { db } from '@/db';
+import type { FoodGroup } from '@/db/schema';
 
-// Indications join these as a third axis once the phase-1 schema lands.
+// Conditions join these as a third axis with the phase-3 indication pages.
 const TABS = [
-  { id: 'foods', emoji: '🥦', label: 'Foods', count: FOODS.length },
-  { id: 'organs', emoji: '❤️', label: 'Systems', count: ORGANS.length },
+  { id: 'foods', emoji: '🥦', label: 'Foods', count: db.foodGroups.length },
+  { id: 'organs', emoji: '❤️', label: 'Systems', count: db.systems.length },
 ];
 
 export default function BrowseScreen() {
   const [tab, setTab] = useState('foods');
 
-  const openFood = (food: Food) => router.push(`/food/${food.id}`);
+  const openGroup = (group: FoodGroup) => router.push(`/group/${group.id}`);
 
   return (
     <View style={styles.container}>
@@ -37,18 +37,18 @@ export default function BrowseScreen() {
       >
         {tab === 'foods' && (
           <>
-            <Text style={styles.meta}>{FOODS.length} food groups</Text>
-            {FOODS.map((f) => (
-              <FoodCard key={f.id} food={f} onPress={openFood} />
+            <Text style={styles.meta}>{db.foodGroups.length} food groups</Text>
+            {db.foodGroups.map((g) => (
+              <GroupCard key={g.id} group={g} onPress={openGroup} />
             ))}
           </>
         )}
 
         {tab === 'organs' && (
           <>
-            <Text style={styles.meta}>{ORGANS.length} organs &amp; systems — tap a row to expand</Text>
-            {ORGANS.map((o) => (
-              <OrganCard key={o.id} organ={o} />
+            <Text style={styles.meta}>{db.systems.length} body systems — tap a condition to see the evidence</Text>
+            {db.systems.map((s) => (
+              <SystemCard key={s.id} system={s} />
             ))}
           </>
         )}

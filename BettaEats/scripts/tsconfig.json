@@ -1,0 +1,10 @@
+{
+  // The database scripts run under Node, so they get Node's types; the app config doesn't,
+  // keeping globals like Buffer and __dirname out of app code.
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["./**/*.ts"],
+  "exclude": []
+}

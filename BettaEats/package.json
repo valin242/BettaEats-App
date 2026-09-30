@@ -29,19 +29,26 @@
     "react-native-safe-area-context": "~5.7.0",
     "react-native-screens": "4.25.2",
     "react-native-web": "~0.21.0",
-    "react-native-worklets": "0.8.3"
+    "react-native-worklets": "0.8.3",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@types/node": "^20.19.43",
     "@types/react": "~19.2.2",
+    "tsx": "^4.23.15",
     "typescript": "~6.0.3"
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "db:validate": "tsx scripts/db/cli.ts validate",
+    "db:build": "tsx scripts/db/cli.ts build",
+    "db:build:commercial": "tsx scripts/db/cli.ts build --profile=commercial",
+    "db:check": "tsx scripts/db/cli.ts check",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p scripts"
   },
   "private": true
 }

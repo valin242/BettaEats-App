@@ -1,0 +1,175 @@
+[
+  {
+    "id": "cancer",
+    "name": "Cancer",
+    "kind": "condition",
+    "aliases": [
+      "Cancer prevention",
+      "Chemoprevention"
+    ],
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "colorectal-cancer",
+    "name": "Colorectal cancer",
+    "kind": "condition",
+    "aliases": [
+      "Colon cancer",
+      "Bowel cancer"
+    ],
+    "systemId": "colon",
+    "parentId": "cancer",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "gastric-cancer",
+    "name": "Gastric cancer",
+    "kind": "condition",
+    "aliases": [
+      "Stomach cancer"
+    ],
+    "parentId": "cancer",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "atherosclerosis",
+    "name": "Atherosclerosis",
+    "kind": "condition",
+    "aliases": [
+      "Arterial plaque",
+      "Hardening of the arteries"
+    ],
+    "systemId": "heart",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "hypertension",
+    "name": "High blood pressure",
+    "kind": "condition",
+    "aliases": [
+      "Hypertension",
+      "Blood pressure"
+    ],
+    "systemId": "heart",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "high-ldl-cholesterol",
+    "name": "High LDL cholesterol",
+    "kind": "condition",
+    "aliases": [
+      "High cholesterol",
+      "Hypercholesterolemia"
+    ],
+    "systemId": "heart",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "cognitive-decline",
+    "name": "Cognitive decline",
+    "kind": "condition",
+    "aliases": [
+      "Memory loss",
+      "Brain aging"
+    ],
+    "systemId": "brain",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "alzheimers-disease",
+    "name": "Alzheimer's disease",
+    "kind": "condition",
+    "aliases": [
+      "Alzheimers",
+      "Dementia"
+    ],
+    "systemId": "brain",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "type-2-diabetes",
+    "name": "Type 2 diabetes",
+    "kind": "condition",
+    "aliases": [
+      "T2D",
+      "Insulin resistance",
+      "Blood sugar"
+    ],
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "chronic-inflammation",
+    "name": "Chronic inflammation",
+    "kind": "condition",
+    "aliases": [
+      "Inflammation"
+    ],
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "microbiome-diversity",
+    "name": "Gut microbiome diversity",
+    "kind": "goal",
+    "aliases": [
+      "Microbiome",
+      "Gut health"
+    ],
+    "systemId": "colon",
+    "provenance": {
+      "source": "curated",
+      "sourceId": "phase-1 migration",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

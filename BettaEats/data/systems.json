@@ -1,0 +1,50 @@
+[
+  {
+    "id": "heart",
+    "name": "Heart & Cardiovascular",
+    "emoji": "❤️",
+    "palette": {
+      "bg": "#fdecea",
+      "border": "#f09090",
+      "accent": "#c0302a"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "brain",
+    "name": "Brain & Nervous System",
+    "emoji": "🧠",
+    "palette": {
+      "bg": "#ebe8f8",
+      "border": "#a898e0",
+      "accent": "#5040a0"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "colon",
+    "name": "Colon & Gut",
+    "emoji": "🫁",
+    "palette": {
+      "bg": "#e8f5ec",
+      "border": "#90c9a4",
+      "accent": "#2d7a4f"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

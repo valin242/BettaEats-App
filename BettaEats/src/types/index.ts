@@ -1,38 +1,5 @@
-export interface Food {
-  id: string;
-  group: string;
-  emoji: string;
-  items: string;
-  hb: string;   // head background tint
-  bd: string;   // border color
-  ac: string;   // accent color
-  compounds: string[];
-  benefits: string[];
-  prep: string;
-  evidence: string;
-  tags: string[];
-}
-
-export interface OrganCardData {
-  title: string;
-  body: string;
-  foods: string;
-}
-
-export interface Organ {
-  id: string;
-  name: string;
-  emoji: string;
-  hb: string;
-  bd: string;
-  ac: string;
-  topFoods: string[];
-  cards: OrganCardData[];
-}
-
-/** Kinds of record a reader can bookmark. Compounds and indications join these
- *  once the phase-1 schema lands. */
-export type SavedKind = 'food' | 'organ';
+/** Kinds of record a reader can bookmark. Compounds and indications join these with their phase-3 pages. */
+export type SavedKind = 'group' | 'system';
 
 export interface SavedItem {
   kind: SavedKind;

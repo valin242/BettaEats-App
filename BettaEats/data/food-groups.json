@@ -1,0 +1,146 @@
+[
+  {
+    "id": "cruciferous",
+    "name": "Cruciferous Vegetables",
+    "emoji": "🥦",
+    "palette": {
+      "bg": "#e8f5ec",
+      "border": "#90c9a4",
+      "accent": "#2d7a4f"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allium",
+    "name": "Alliums",
+    "emoji": "🧄",
+    "palette": {
+      "bg": "#fdf3e8",
+      "border": "#f0b87a",
+      "accent": "#b85c00"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "berry",
+    "name": "Berries & Grapes",
+    "emoji": "🫐",
+    "palette": {
+      "bg": "#f3eaf8",
+      "border": "#c49fd8",
+      "accent": "#7b3fa0"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "leafy",
+    "name": "Leafy Greens",
+    "emoji": "🥬",
+    "palette": {
+      "bg": "#eaf5e8",
+      "border": "#96cc88",
+      "accent": "#3a7a2a"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "tea",
+    "name": "Teas & Coffee",
+    "emoji": "🍵",
+    "palette": {
+      "bg": "#eaf5f0",
+      "border": "#80c0a0",
+      "accent": "#1a6a50"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "spice",
+    "name": "Herbs & Spices",
+    "emoji": "🫚",
+    "palette": {
+      "bg": "#fef0e0",
+      "border": "#f0a060",
+      "accent": "#c05010"
+    },
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice]",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "legume",
+    "name": "Legumes",
+    "emoji": "🫘",
+    "palette": {
+      "bg": "#e8f0f8",
+      "border": "#88aed0",
+      "accent": "#2a5a8a"
+    },
+    "provenance": {
+      "source": "curated",
+      "sourceId": "name from ORGANS topFoods; palette from colors_and_type.css --cat-legume-*",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "grain",
+    "name": "Whole Grains",
+    "emoji": "🌾",
+    "palette": {
+      "bg": "#f8f3e8",
+      "border": "#d0b070",
+      "accent": "#8a6020"
+    },
+    "provenance": {
+      "source": "curated",
+      "sourceId": "name from ORGANS topFoods; palette from colors_and_type.css --cat-grain-*",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "fermented",
+    "name": "Fermented Foods",
+    "emoji": "🫙",
+    "palette": {
+      "bg": "#f0eef8",
+      "border": "#a0a0d8",
+      "accent": "#5050a0"
+    },
+    "provenance": {
+      "source": "curated",
+      "sourceId": "name from ORGANS topFoods; palette from colors_and_type.css --cat-fermented-*",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

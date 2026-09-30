@@ -1,0 +1,92 @@
+[
+  {
+    "id": "cruciferous-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "cruciferous"
+    },
+    "text": "Broccoli sprouts raw for maximum sulforaphane. Steam florets 3–4 min; add mustard powder after cooking to restore myrosinase enzyme activity.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "allium-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "allium"
+    },
+    "text": "Crush garlic and wait 10 minutes before cooking — this activates alliinase to produce allicin.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "berry-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "berry"
+    },
+    "text": "Fresh or frozen whole berries — freezing preserves polyphenols. Whole fruit preferred over juice.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "leafy-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "leafy"
+    },
+    "text": "Eat with every grilled or charred meal — chlorophyll traps carcinogens in real time.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "tea-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "tea"
+    },
+    "text": "Steep green tea at 160–180°F for 2–3 min. Add lemon juice; avoid milk (casein binds EGCG).",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  },
+  {
+    "id": "spice-prep",
+    "status": "unverified",
+    "subject": {
+      "kind": "group",
+      "id": "spice"
+    },
+    "text": "Always combine turmeric with black pepper — piperine boosts curcumin absorption up to 2000%.",
+    "provenance": {
+      "source": "prototype",
+      "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].prep",
+      "license": "original",
+      "retrievedAt": "2026-09-29"
+    }
+  }
+]

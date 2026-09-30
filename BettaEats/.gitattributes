@@ -1,0 +1,2 @@
+# Built by `npm run db:build` from data/*.json; review the source files, not this.
+src/db/db.generated.json linguist-generated=true -diff

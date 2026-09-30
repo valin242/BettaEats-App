@@ -2,40 +2,20 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Disclaimer, { DisclaimerBold } from '@/components/ui/Disclaimer';
-import { FOODS, ORGANS } from '@/constants/data';
+import EvidenceBadge from '@/components/ui/EvidenceBadge';
 import { Colors, FontFamily, Spacing } from '@/constants/tokens';
-import { useAppContext } from '@/context/AppContext';
+import { db, verifiedCount } from '@/db';
+import { EVIDENCE_DESCRIPTIONS, EVIDENCE_LEVELS, UNVERIFIED_DESCRIPTION } from '@/db/vocab';
 
-const EVIDENCE_LEVELS = [
-  {
-    label: 'Well-established',
-    bg: '#e8f5ec',
-    fg: '#2d7a4f',
-    body: 'Consistent human evidence — meta-analyses or multiple RCTs pointing the same way.',
-  },
-  {
-    label: 'Emerging',
-    bg: '#fef0e0',
-    fg: '#b06010',
-    body: 'Promising human data, but limited trials or unsettled effect sizes.',
-  },
-  {
-    label: 'Correlational',
-    bg: '#f3eaf8',
-    fg: '#7b3fa0',
-    body: 'Observational only. Association is real; causation has not been shown.',
-  },
-  {
-    label: 'Preclinical',
-    bg: '#f0f4f0',
-    fg: '#5a6a5a',
-    body: 'Cell or animal work. Mechanistically interesting, not yet shown in people.',
-  },
+const STATS = [
+  { value: db.foodGroups.length, label: 'food groups' },
+  { value: db.compounds.length, label: 'compounds' },
+  { value: db.claims.length, label: 'claims' },
 ];
 
 export default function AboutScreen() {
-  const { state } = useAppContext();
   const insets = useSafeAreaInsets();
+  const cited = verifiedCount(db.claims);
 
   return (
     <ScrollView
@@ -52,47 +32,45 @@ export default function AboutScreen() {
       </View>
 
       <View style={styles.statRow}>
-        <View style={styles.stat}>
-          <Text style={styles.statNum}>{FOODS.length}</Text>
-          <Text style={styles.statLabel}>food groups</Text>
-        </View>
-        <View style={styles.stat}>
-          <Text style={styles.statNum}>{ORGANS.length}</Text>
-          <Text style={styles.statLabel}>body systems</Text>
-        </View>
-        <View style={styles.stat}>
-          <Text style={styles.statNum}>{state.saved.length}</Text>
-          <Text style={styles.statLabel}>saved</Text>
-        </View>
+        {STATS.map((s) => (
+          <View key={s.label} style={styles.stat}>
+            <Text style={styles.statNum}>{s.value}</Text>
+            <Text style={styles.statLabel}>{s.label}</Text>
+          </View>
+        ))}
       </View>
+      <Text style={styles.cited}>
+        {cited} of {db.claims.length} claims checked against a published source
+      </Text>
 
       <View style={styles.section}>
         <Text style={styles.h2}>How evidence is labelled</Text>
         <Text style={styles.sectionSub}>
-          Every claim carries one of these. Nothing is overclaimed to make a better headline.
+          Every claim carries one of these. A grade is only given once a claim has been checked against its
+          sources — nothing is overclaimed to make a better headline.
         </Text>
-        {EVIDENCE_LEVELS.map((e) => (
-          <View key={e.label} style={styles.evRow}>
-            <View style={[styles.evBadge, { backgroundColor: e.bg }]}>
-              <Text style={[styles.evBadgeText, { color: e.fg }]}>{e.label}</Text>
-            </View>
-            <Text style={styles.evBody}>{e.body}</Text>
+        {EVIDENCE_LEVELS.map((level) => (
+          <View key={level} style={styles.evRow}>
+            <EvidenceBadge level={level} />
+            <Text style={styles.evBody}>{EVIDENCE_DESCRIPTIONS[level]}</Text>
           </View>
         ))}
+        <View style={styles.evRow}>
+          <EvidenceBadge />
+          <Text style={styles.evBody}>{UNVERIFIED_DESCRIPTION}</Text>
+        </View>
       </View>
 
       <View style={styles.section}>
         <Disclaimer kind="danger">
-          <DisclaimerBold>Not medical advice.</DisclaimerBold>
-          {' '}BettaEats summarises published research for education. It cannot account for your
-          medications, conditions, or individual risk. Talk to a clinician before making significant
-          dietary changes.
+          <DisclaimerBold>Not medical advice.</DisclaimerBold> BettaEats summarises published research for
+          education. It cannot account for your medications, conditions, or individual risk. Talk to a clinician
+          before making significant dietary changes.
         </Disclaimer>
       </View>
 
       <Text style={styles.footer}>
-        Based on peer-reviewed research in nutritional biochemistry, epidemiology, and clinical
-        dietetics.
+        Based on peer-reviewed research in nutritional biochemistry, epidemiology, and clinical dietetics.
       </Text>
     </ScrollView>
   );
@@ -154,6 +132,13 @@ const styles = StyleSheet.create({
     color: Colors.fg4,
     marginTop: 2,
   },
+  cited: {
+    fontFamily: FontFamily.uiMedium,
+    fontSize: 12,
+    color: Colors.fg3,
+    textAlign: 'center',
+    marginTop: Spacing.sp3,
+  },
   section: {
     marginTop: Spacing.sp8,
   },
@@ -172,23 +157,13 @@ const styles = StyleSheet.create({
   },
   evRow: {
     marginBottom: Spacing.sp3,
-  },
-  evBadge: {
-    alignSelf: 'flex-start',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-    paddingVertical: 3,
-  },
-  evBadgeText: {
-    fontFamily: FontFamily.uiBold,
-    fontSize: 11,
+    gap: 4,
   },
   evBody: {
     fontFamily: FontFamily.ui,
     fontSize: 12.5,
     color: Colors.fg3,
     lineHeight: 19,
-    marginTop: 4,
   },
   footer: {
     fontFamily: FontFamily.ui,

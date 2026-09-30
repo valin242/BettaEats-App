@@ -2,50 +2,28 @@ import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
-import FoodCard from '@/components/cards/FoodCard';
-import OrganCard from '@/components/cards/OrganCard';
+import GroupCard from '@/components/cards/GroupCard';
+import SystemCard from '@/components/cards/SystemCard';
 import AppBar from '@/components/ui/AppBar';
 import Disclaimer, { DisclaimerBold } from '@/components/ui/Disclaimer';
-import { FOODS, ORGANS } from '@/constants/data';
 import { Colors, FontFamily, Spacing } from '@/constants/tokens';
-import type { Food } from '@/types';
-
-/** Every string on a food that a reader might reasonably search for. */
-function foodHaystack(f: Food) {
-  return [f.group, f.items, ...f.compounds, ...f.tags, f.evidence].join(' ').toLowerCase();
-}
+import { db, search } from '@/db';
+import type { FoodGroup } from '@/db/schema';
 
 export default function SearchScreen() {
   const [query, setQuery] = useState('');
-  const q = query.trim().toLowerCase();
+  const trimmed = query.trim();
+  const { groups, systems } = useMemo(() => search(query), [query]);
+  const total = groups.length + systems.length;
 
-  const foods = useMemo(
-    () => (q ? FOODS.filter((f) => foodHaystack(f).includes(q)) : FOODS),
-    [q]
-  );
-
-  const organs = useMemo(
-    () =>
-      q
-        ? ORGANS.filter((o) =>
-            [o.name, ...o.topFoods, ...o.cards.map((c) => `${c.title} ${c.body} ${c.foods}`)]
-              .join(' ')
-              .toLowerCase()
-              .includes(q)
-          )
-        : [],
-    [q]
-  );
-
-  const total = foods.length + organs.length;
-  const openFood = (food: Food) => router.push(`/food/${food.id}`);
+  const openGroup = (group: FoodGroup) => router.push(`/group/${group.id}`);
 
   return (
     <View style={styles.container}>
       <AppBar
         eyebrow="Evidence-based dietary health reference"
         title="Food as Medicine"
-        sub="Search foods, compounds, and body systems"
+        sub="Search foods, compounds, and conditions"
         search={query}
         onSearchChange={setQuery}
       />
@@ -55,36 +33,37 @@ export default function SearchScreen() {
         showsVerticalScrollIndicator={false}
         keyboardDismissMode="on-drag"
       >
-        {q && total === 0 ? (
+        {trimmed && total === 0 ? (
           <View style={styles.empty}>
-            <Text style={styles.emptyTitle}>No matches for “{query.trim()}”</Text>
+            <Text style={styles.emptyTitle}>No matches for “{trimmed}”</Text>
             <Text style={styles.emptyBody}>
-              The database currently covers {FOODS.length} food groups and {ORGANS.length} body
-              systems. Try a compound name like “sulforaphane”, or a system like “brain”.
+              The database covers {db.foodGroups.length} food groups, {db.compounds.length} compounds, and{' '}
+              {db.indications.length} conditions so far. Try a compound like “sulforaphane” or a condition like
+              “blood pressure”.
             </Text>
           </View>
         ) : (
           <>
             <Text style={styles.meta}>
-              {q
-                ? `${total} result${total === 1 ? '' : 's'} for “${query.trim()}”`
-                : `Browse all ${FOODS.length} food groups`}
+              {trimmed
+                ? `${total} result${total === 1 ? '' : 's'} for “${trimmed}”`
+                : `Browse all ${db.foodGroups.length} food groups`}
             </Text>
 
-            {foods.length > 0 && (
+            {groups.length > 0 && (
               <>
-                {q ? <Text style={styles.sectionLabel}>Foods</Text> : null}
-                {foods.map((f) => (
-                  <FoodCard key={f.id} food={f} onPress={openFood} />
+                {trimmed ? <Text style={styles.sectionLabel}>Foods</Text> : null}
+                {groups.map((g) => (
+                  <GroupCard key={g.id} group={g} onPress={openGroup} />
                 ))}
               </>
             )}
 
-            {organs.length > 0 && (
+            {systems.length > 0 && (
               <>
-                <Text style={[styles.sectionLabel, { marginTop: Spacing.sp4 }]}>Body systems</Text>
-                {organs.map((o) => (
-                  <OrganCard key={o.id} organ={o} />
+                <Text style={[styles.sectionLabel, groups.length > 0 && { marginTop: Spacing.sp4 }]}>Body systems</Text>
+                {systems.map((s) => (
+                  <SystemCard key={s.id} system={s} />
                 ))}
               </>
             )}
@@ -93,9 +72,8 @@ export default function SearchScreen() {
 
         <View style={{ marginTop: Spacing.sp4 }}>
           <Disclaimer kind="info">
-            <DisclaimerBold>Educational reference only.</DisclaimerBold>
-            {' '}Consult a healthcare provider before significant dietary changes, especially if
-            managing a condition or taking medications.
+            <DisclaimerBold>Educational reference only.</DisclaimerBold> Consult a healthcare provider before
+            significant dietary changes, especially if managing a condition or taking medications.
           </Disclaimer>
         </View>
       </ScrollView>

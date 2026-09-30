@@ -1,3 +1,5 @@
+import type { EvidenceLevel } from '@/db/vocab';
+
 export const Colors = {
   // Backgrounds
   bg: '#ffffff',
@@ -93,3 +95,17 @@ export const FontFamily = {
   uiBold: 'DMSans_700Bold',
   mono: 'Courier',
 } as const;
+
+/**
+ * Evidence badge colours. The first four come from the --evidence-* tokens in
+ * colors_and_type.css; preclinical and unverified are neutral so they never read as endorsement.
+ * Unverified is drawn with a dashed border to say "pending".
+ */
+export const EvidenceColors: Record<EvidenceLevel | 'unverified', { bg: string; fg: string; border: string }> = {
+  'well-established': { bg: '#e8f5ec', fg: '#2d7a4f', border: '#90c9a4' },
+  emerging: { bg: '#fef0e0', fg: '#b06010', border: '#f0a060' },
+  mixed: { bg: '#fef8e7', fg: '#b07000', border: '#f0d080' },
+  correlational: { bg: '#f3eaf8', fg: '#7b3fa0', border: '#c49fd8' },
+  preclinical: { bg: '#f0f4f0', fg: '#5a6a5a', border: '#c8d4c8' },
+  unverified: { bg: '#ffffff', fg: '#7a8f7b', border: '#a0b0a0' },
+};
