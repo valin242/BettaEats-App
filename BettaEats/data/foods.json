@@ -251,7 +251,8 @@
     "id": "arugula",
     "name": "Arugula",
     "groupIds": [
-      "leafy"
+      "leafy",
+      "cruciferous"
     ],
     "provenance": {
       "source": "prototype",
@@ -277,7 +278,8 @@
     "id": "watercress",
     "name": "Watercress",
     "groupIds": [
-      "leafy"
+      "leafy",
+      "cruciferous"
     ],
     "provenance": {
       "source": "prototype",
@@ -518,7 +520,8 @@
     "id": "miso",
     "name": "Miso",
     "groupIds": [
-      "fermented"
+      "fermented",
+      "legume"
     ],
     "provenance": {
       "source": "prototype",
