@@ -82,10 +82,15 @@ export const COMPOUND_KINDS = ['compound', 'class'] as const;
 export const SUBJECT_KINDS = ['group', 'food', 'compound'] as const;
 export type SubjectKind = (typeof SUBJECT_KINDS)[number];
 
-/** Where a record came from. `prototype` is the original mock data; `curated` is hand-authored. */
+/**
+ * Where a record came from. `prototype` is the original mock data; `curated` is hand-authored;
+ * `pubmed` and `crossref` supply citation metadata via `npm run db:cite`.
+ */
 export const SOURCES = [
   'prototype',
   'curated',
+  'pubmed',
+  'crossref',
   'usda',
   'phenol-explorer',
   'foodb',

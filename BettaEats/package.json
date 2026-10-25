@@ -48,6 +48,7 @@
     "db:build": "tsx scripts/db/cli.ts build",
     "db:build:commercial": "tsx scripts/db/cli.ts build --profile=commercial",
     "db:check": "tsx scripts/db/cli.ts check",
+    "db:cite": "tsx scripts/db/cite.ts",
     "typecheck": "tsc --noEmit && tsc --noEmit -p scripts"
   },
   "private": true

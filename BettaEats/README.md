@@ -50,25 +50,26 @@ npm run db:check   # fail if the generated file is out of date (for CI)
 
 ### Verifying a claim
 
-Add the paper to `citations.json`:
+Find a paper, then let `db:cite` fetch its record from PubMed (or Crossref, for DOIs PubMed
+doesn't index) and attach it to the claim:
 
-```json
-{
-  "id": "author-year-topic",
-  "title": "<paper title>",
-  "authors": "<Surname AB, Surname CD, …>",
-  "journal": "<journal>",
-  "year": 2013,
-  "pmid": "<PubMed ID>",
-  "studyType": "meta-analysis",
-  "provenance": { "source": "curated", "sourceId": "pubmed", "license": "original", "retrievedAt": "2026-09-29" }
-}
+```bash
+npm run db:cite -- 23596162 --claim=leafy-nitrates-blood-pressure
 ```
 
-Then, on the claim, set `"status": "verified"` and add `evidenceLevel`, `intent`, and
-`"citationIds": ["author-year-topic"]`. Run `npm run db:build`; it tells you if anything is missing.
+It accepts a PMID, a DOI, or a PubMed / doi.org link. It writes a valid entry to
+`citations.json`, attaches it to the claim as a *candidate source*, and rebuilds the bundle.
+Entering the same paper twice just reuses the existing entry.
 
-A claim can also list candidate papers while still `unverified`. The app shows those as
+- **Study design** comes from PubMed's publication types when they settle it (meta-analysis,
+  systematic review, RCT, review). Otherwise — observational studies, anything from Crossref —
+  it asks you to say: `--study-type=cohort`, `case-control`, `cross-sectional`, `animal`, `in-vitro`, …
+- **Ids** follow author–year (`siervo-2013`, then `siervo-2013b`); override with `--id=`.
+- Only bibliographic facts are stored, never abstracts.
+
+Attaching a paper doesn't verify the claim. Once you've read it, set `"status": "verified"`
+and add `evidenceLevel` and `intent` on the claim in `claims.json`, then run `npm run db:build`,
+which tells you if anything is missing. Until then the app shows the paper as
 *candidate sources — not yet graded*.
 
 ### Licensing profiles
@@ -86,7 +87,7 @@ it keeps points at one it dropped — so a commercial build can never ship a dan
 
 ```
 data/            the database, as JSON — the source of truth
-scripts/db/      validator and build CLI (run through tsx)
+scripts/db/      validator, build CLI, and db:cite, run through tsx; sources/ holds the API clients
 src/db/          schema (zod), vocabulary, runtime accessors, generated bundle
 src/app/         screens (expo-router)
 src/components/  UI
