@@ -37,12 +37,12 @@ export const getGroup = (id: string): FoodGroup | undefined => groupsById.get(id
 export const getSystem = (id: string): BodySystem | undefined => systemsById.get(id);
 export const getIndication = (id: string): Indication | undefined => indicationsById.get(id);
 
-export const foodsInGroup = (groupId: string): Food[] => db.foods.filter((f) => f.groupId === groupId);
+export const foodsInGroup = (groupId: string): Food[] => db.foods.filter((f) => f.groupIds.includes(groupId));
 
 /** True when a subject reference is the group itself or one of the group's foods. */
 function refersToGroup(ref: SubjectRef, groupId: string): boolean {
   if (ref.kind === 'group') return ref.id === groupId;
-  if (ref.kind === 'food') return foodsById.get(ref.id)?.groupId === groupId;
+  if (ref.kind === 'food') return foodsById.get(ref.id)?.groupIds.includes(groupId) ?? false;
   return false;
 }
 

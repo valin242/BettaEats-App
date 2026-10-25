@@ -2,7 +2,9 @@
   {
     "id": "broccoli",
     "name": "Broccoli",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -13,7 +15,9 @@
   {
     "id": "brussels-sprouts",
     "name": "Brussels Sprouts",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -24,7 +28,9 @@
   {
     "id": "cauliflower",
     "name": "Cauliflower",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -35,7 +41,10 @@
   {
     "id": "kale",
     "name": "Kale",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous",
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -46,7 +55,9 @@
   {
     "id": "cabbage",
     "name": "Cabbage",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -57,7 +68,9 @@
   {
     "id": "bok-choy",
     "name": "Bok Choy",
-    "groupId": "cruciferous",
+    "groupIds": [
+      "cruciferous"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[cruciferous].items",
@@ -68,7 +81,9 @@
   {
     "id": "garlic",
     "name": "Garlic",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -79,7 +94,9 @@
   {
     "id": "onions",
     "name": "Onions",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -90,7 +107,9 @@
   {
     "id": "leeks",
     "name": "Leeks",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -101,7 +120,9 @@
   {
     "id": "shallots",
     "name": "Shallots",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -112,7 +133,9 @@
   {
     "id": "chives",
     "name": "Chives",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -123,7 +146,9 @@
   {
     "id": "scallions",
     "name": "Scallions",
-    "groupId": "allium",
+    "groupIds": [
+      "allium"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[allium].items",
@@ -134,7 +159,9 @@
   {
     "id": "blueberries",
     "name": "Blueberries",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].items",
@@ -145,7 +172,9 @@
   {
     "id": "strawberries",
     "name": "Strawberries",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].items",
@@ -156,7 +185,9 @@
   {
     "id": "raspberries",
     "name": "Raspberries",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].items",
@@ -167,7 +198,9 @@
   {
     "id": "red-grapes",
     "name": "Red Grapes",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].items",
@@ -178,7 +211,9 @@
   {
     "id": "pomegranate",
     "name": "Pomegranate",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[berry].items",
@@ -189,7 +224,9 @@
   {
     "id": "spinach",
     "name": "Spinach",
-    "groupId": "leafy",
+    "groupIds": [
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].items",
@@ -200,7 +237,9 @@
   {
     "id": "swiss-chard",
     "name": "Swiss Chard",
-    "groupId": "leafy",
+    "groupIds": [
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].items",
@@ -211,7 +250,9 @@
   {
     "id": "arugula",
     "name": "Arugula",
-    "groupId": "leafy",
+    "groupIds": [
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].items",
@@ -222,7 +263,9 @@
   {
     "id": "romaine",
     "name": "Romaine",
-    "groupId": "leafy",
+    "groupIds": [
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].items",
@@ -233,7 +276,9 @@
   {
     "id": "watercress",
     "name": "Watercress",
-    "groupId": "leafy",
+    "groupIds": [
+      "leafy"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[leafy].items",
@@ -244,7 +289,9 @@
   {
     "id": "green-tea",
     "name": "Green Tea",
-    "groupId": "tea",
+    "groupIds": [
+      "tea"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].items",
@@ -255,7 +302,9 @@
   {
     "id": "matcha",
     "name": "Matcha",
-    "groupId": "tea",
+    "groupIds": [
+      "tea"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].items",
@@ -266,7 +315,9 @@
   {
     "id": "black-tea",
     "name": "Black Tea",
-    "groupId": "tea",
+    "groupIds": [
+      "tea"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].items",
@@ -277,7 +328,9 @@
   {
     "id": "coffee",
     "name": "Coffee",
-    "groupId": "tea",
+    "groupIds": [
+      "tea"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[tea].items",
@@ -288,7 +341,9 @@
   {
     "id": "turmeric",
     "name": "Turmeric",
-    "groupId": "spice",
+    "groupIds": [
+      "spice"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].items",
@@ -299,7 +354,9 @@
   {
     "id": "ginger",
     "name": "Ginger",
-    "groupId": "spice",
+    "groupIds": [
+      "spice"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].items",
@@ -310,7 +367,9 @@
   {
     "id": "rosemary",
     "name": "Rosemary",
-    "groupId": "spice",
+    "groupIds": [
+      "spice"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].items",
@@ -321,7 +380,9 @@
   {
     "id": "cinnamon",
     "name": "Cinnamon",
-    "groupId": "spice",
+    "groupIds": [
+      "spice"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].items",
@@ -332,7 +393,9 @@
   {
     "id": "black-pepper",
     "name": "Black Pepper",
-    "groupId": "spice",
+    "groupIds": [
+      "spice"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#FOODS[spice].items",
@@ -343,6 +406,7 @@
   {
     "id": "olive-oil",
     "name": "Olive Oil",
+    "groupIds": [],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[0].foods",
@@ -353,6 +417,7 @@
   {
     "id": "beets",
     "name": "Beets",
+    "groupIds": [],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[1].foods",
@@ -363,7 +428,9 @@
   {
     "id": "oats",
     "name": "Oats",
-    "groupId": "grain",
+    "groupIds": [
+      "grain"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[2].foods",
@@ -374,7 +441,9 @@
   {
     "id": "barley",
     "name": "Barley",
-    "groupId": "grain",
+    "groupIds": [
+      "grain"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[heart].cards[2].foods",
@@ -385,7 +454,9 @@
   {
     "id": "blackberries",
     "name": "Blackberries",
-    "groupId": "berry",
+    "groupIds": [
+      "berry"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain].cards[0].foods",
@@ -396,6 +467,7 @@
   {
     "id": "eggs",
     "name": "Eggs",
+    "groupIds": [],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[brain].cards[2].foods",
@@ -406,7 +478,9 @@
   {
     "id": "lentils",
     "name": "Lentils",
-    "groupId": "legume",
+    "groupIds": [
+      "legume"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[0].foods",
@@ -417,7 +491,9 @@
   {
     "id": "cooled-rice",
     "name": "Cooled Rice",
-    "groupId": "grain",
+    "groupIds": [
+      "grain"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[0].foods",
@@ -428,7 +504,9 @@
   {
     "id": "kimchi",
     "name": "Kimchi",
-    "groupId": "fermented",
+    "groupIds": [
+      "fermented"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[1].foods",
@@ -439,7 +517,9 @@
   {
     "id": "miso",
     "name": "Miso",
-    "groupId": "fermented",
+    "groupIds": [
+      "fermented"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[1].foods",
@@ -450,7 +530,9 @@
   {
     "id": "sauerkraut",
     "name": "Sauerkraut",
-    "groupId": "fermented",
+    "groupIds": [
+      "fermented"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[1].foods",
@@ -461,7 +543,9 @@
   {
     "id": "kefir",
     "name": "Kefir",
-    "groupId": "fermented",
+    "groupIds": [
+      "fermented"
+    ],
     "provenance": {
       "source": "prototype",
       "sourceId": "src/constants/data.ts@06ac4e5#ORGANS[colon].cards[1].foods",

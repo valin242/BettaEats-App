@@ -94,9 +94,12 @@ export function checkIntegrity(d: Collections): Report {
   const missing = (what: string, id: string) => `${what} "${id}" does not exist`;
 
   for (const f of d.foods) {
-    if (f.groupId && !ids.group.has(f.groupId)) {
-      errors.push({ where: at('foods', f.id), message: missing('food group', f.groupId) });
+    const where = at('foods', f.id);
+    for (const groupId of f.groupIds) {
+      if (!ids.group.has(groupId)) errors.push({ where, message: missing('food group', groupId) });
     }
+    const dupes = f.groupIds.filter((g, i) => f.groupIds.indexOf(g) !== i);
+    for (const groupId of new Set(dupes)) errors.push({ where, message: `lists food group "${groupId}" twice` });
   }
 
   const pairs = new Set<string>();

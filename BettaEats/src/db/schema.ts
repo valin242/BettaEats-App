@@ -53,8 +53,11 @@ export const FoodGroup = z.strictObject({
 export const Food = z.strictObject({
   id: Id,
   name: Text,
-  /** Omitted for foods outside the canonical groups, such as olive oil or eggs. */
-  groupId: Id.optional(),
+  /**
+   * Every canonical group the food belongs to — kale is both cruciferous and a leafy green, and
+   * claims naming it appear under each. Empty for foods outside the groups, such as olive oil.
+   */
+  groupIds: z.array(Id).default([]),
   aliases: Aliases,
   provenance: Provenance,
 });
